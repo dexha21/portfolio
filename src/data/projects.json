@@ -1,0 +1,509 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "howToAddAProject": "Copy any existing project block, change the `id` to a new unique slug (kebab-case), set `tier` to 1 (case study) or 2 (card). For tier 1, fill `sections` and `outcomes`. For tier 2, leave those empty arrays.",
+    "tiers": {
+      "1": "Full case study page — appears on /projects/:id with full narrative",
+      "2": "Card only — appears on /projects index and home featured grid"
+    },
+    "requiredFields": [
+      "id",
+      "title",
+      "year",
+      "subtitle",
+      "summary",
+      "stack",
+      "tier"
+    ],
+    "optionalFields": [
+      "image",
+      "metrics",
+      "overview",
+      "sections",
+      "outcomes",
+      "featured",
+      "status",
+      "links"
+    ]
+  },
+
+  "themes": [
+    { "id": "education", "label": "Education & Assessment" },
+    { "id": "collaboration", "label": "Collaboration & Communication" },
+    { "id": "business", "label": "Business Systems" },
+    { "id": "ai", "label": "AI & Automation" },
+    { "id": "utilities", "label": "Utilities & Tools" },
+    { "id": "early", "label": "Early Work" }
+  ],
+
+  "tier1": [
+    {
+      "id": "x-cbt",
+      "tier": 1,
+      "featured": true,
+      "status": "Production-ready",
+      "theme": "education",
+      "title": "X CBT",
+      "year": "2026",
+      "subtitle": "High-Concurrency Computer-Based Testing Platform",
+      "summary": "A CBT platform built for offline exam environments — 300+ concurrent systems, device-level anti-cheat, and question-set freezing for exam fairness.",
+      "stack": ["Node.js", "Express", "React.js", "MySQL"],
+      "image": "",
+      "metrics": [
+        { "value": "300+", "label": "Concurrent systems" },
+        { "value": "3", "label": "Question formats" },
+        { "value": "Win 7+", "label": "Desktop support" }
+      ],
+      "overview": "X CBT is a Computer-Based Testing platform built for the specific conditions of offline exam environments — no cloud scaling, no reliable internet, hundreds of candidates on a local network, and a hard requirement that every attempt be fair. It supports up to 300+ concurrent systems during a live examination session and runs both as a networked web application and as a Windows desktop executable compatible with Windows 7 and newer.",
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Exam centers run on tight schedules with dozens of candidates per session, limited hardware, and no tolerance for failure. A cloud-first CBT platform collapses the moment the internet drops. An offline platform has to solve for fairness, anti-cheat, and resilience on its own — there is no managed infrastructure to fall back on."
+        },
+        {
+          "heading": "Architecture",
+          "body": "Every exam runs as a session. Administrators create a session with a six-character join key, a status (draft, active, or ended), a duration, marking rules, and question-set configuration. Candidates join via the key, and the platform freezes a per-student question set at the moment of start — so randomization is enforced consistently for every candidate, but each person answers their own list. Attempts are stateful: active, paused, submitted, expired, or ended. Pausing records elapsed paused time so a disconnected candidate cannot be gamed back into extra minutes. Device fingerprinting (unique ID, device type, IP) is tracked per session, with the ability for admins to block a device mid-exam."
+        },
+        {
+          "heading": "Question bank & formats",
+          "items": [
+            "Three question types: objective, theory, and boolean.",
+            "Question-bank filtering by subject, topic, exam year, and difficulty.",
+            "Configurable marking schemes: all-subjects-100, per-subject-100, or per-question.",
+            "JAMB-style theory auto-marking with optional case sensitivity.",
+            "PDF export for result slips and Excel import for bulk question upload."
+          ]
+        },
+        {
+          "heading": "Anti-cheat & monitoring",
+          "body": "Anti-cheat runs on the server, not the client. Each device is fingerprinted at join time; a blocked device cannot re-join the session. Live admin dashboards show who is currently taking the exam, how long they have been active, pause history, and submission status. Question randomization and per-student question freezing remove the value of looking at a neighbor's screen. Randomization of answer options (optional per session) defeats pattern matching."
+        },
+        {
+          "heading": "Deployment",
+          "body": "X CBT deploys in two modes from the same codebase: a local-network web deployment behind a centralized server, and a packaged Windows desktop executable for centers that prefer a single-machine install. Both modes share the same MySQL schema and Node.js backend. The architecture is designed for the machine that is actually on site — not the machine you wish was on site."
+        }
+      ],
+      "outcomes": [
+        "Supports 300+ concurrent systems in live exam sessions.",
+        "Deployed across multiple CBT centers for high-volume UTME and institutional exam runs.",
+        "Replaced paper-and-spreadsheet exam workflows for its users.",
+        "Also packaged as a Windows desktop application for offline-first centers."
+      ]
+    },
+
+    {
+      "id": "penoter-platform",
+      "tier": 1,
+      "featured": true,
+      "status": "Production-ready",
+      "theme": "business",
+      "title": "Penoter Platform",
+      "year": "2025",
+      "subtitle": "A Complete Business Operating System",
+      "summary": "Four integrated applications — customer, trainee, staff/admin, and mobile — sharing one Laravel API, one Redis pub/sub layer, and one real-time Socket.IO server.",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Redis",
+        "Horizon",
+        "React (Vite, TypeScript)",
+        "Expo / React Native",
+        "Node.js",
+        "Socket.IO",
+        "Flutterwave",
+        "Firebase Cloud Messaging"
+      ],
+      "image": "",
+      "metrics": [
+        { "value": "4", "label": "Integrated applications" },
+        { "value": "40", "label": "Vertical delivery slices" },
+        { "value": "7", "label": "Build phases" }
+      ],
+      "overview": "Penoter was a services business and computer training school running on paper — orders in notebooks, trainees in spreadsheets, announcements as WhatsApp broadcasts. Penoter Platform replaces that with a unified digital operating system: four applications sharing one API, one design language, and one real-time infrastructure layer. It serves customers, trainees, IT placement students, staff, support agents, and management through role-specific experiences built on the same backend.",
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "The business had no way to see what had been sold on a given day, no way for a trainee to check their own attendance or progress, and no scalable path beyond a single office. The engineering challenge was not just building features — it was preserving the simplicity of the original operation while giving every stakeholder their own purpose-built experience. That meant real-time infrastructure, multi-role authorization, and a content model flexible enough to grow without redeployments."
+        },
+        {
+          "heading": "Architecture",
+          "body": "Penoter Platform is four applications on one backend. A Laravel 11 API on PHP 8.3 with Sanctum token authentication serves the entire platform; role-based abilities distinguish mobile sessions from admin sessions, and Spatie's permission package manages roles and permissions. The application layer uses an Actions-and-Services pattern instead of fat controllers, with policies for authorization, Form Requests for validation, and API Resources for output shaping. Asynchronous work runs through Laravel queues backed by Redis and supervised by Horizon. Scheduled tasks run through the framework's scheduler on a single cron entry. The React 19 admin panel (Vite, TypeScript) provides the staff-facing interface. The Expo / React Native mobile app targets Android, iOS, and web from one codebase. A Node.js Socket.IO server bridges Laravel's Redis broadcasts to connected clients."
+        },
+        {
+          "heading": "Highlights",
+          "items": [
+            "Redis pub/sub decouples the API and the Socket.IO server — horizontal scaling with no sticky sessions.",
+            "Dynamic form engine: services define their own fields as JSON schemas; the mobile app renders them at order time and the API validates against them.",
+            "Schema snapshots at order creation — historical orders stay accurate even when admins change field definitions later.",
+            "Payment reliability without HMAC secrets: every payment is re-verified server-side with multiple independent completion paths.",
+            "Multi-channel communication engine delivering push, email, and SMS to audience segments in 100-recipient queued batches.",
+            "Guest browsing: everything is viewable without an account; authentication is required only at action points.",
+            "Channel-level Socket.IO authorization — a customer can never subscribe to another customer's conversation."
+          ]
+        },
+        {
+          "heading": "Notable engineering",
+          "body": "The payment pipeline was designed around a hard constraint: webhooks are unreliable in the real world, especially on local networks and during development. Instead of depending on a shared HMAC secret, every payment confirmation is re-verified server-side using Flutterwave's secret key. The browser redirect callback settles the payment directly on the server, and a verify-on-return endpoint provides an additional fallback for the mobile client. The result is a payment pipeline with multiple independent completion paths and no single point of failure. The dynamic form engine follows a similar principle: rather than writing a new order form every time the business added a service, administrators define form fields as JSON, and the platform handles rendering, validation, and storage automatically."
+        },
+        {
+          "heading": "Delivery methodology",
+          "body": "The project ran as roughly forty small, verifiable batches across seven phases — Foundation and Mobile Shell; Services and Orders; Computer Training; Information, Opportunities, and Support; Home Dashboard; Communication; Digital Management and Reporting; and Production Launch. Every batch was a vertical slice: database schema, API endpoints, admin UI, and mobile UI delivered together. The platform stayed continuously working rather than integrating at the end."
+        }
+      ],
+      "outcomes": [
+        "Replaced paper notebooks and scattered spreadsheets with a unified digital management sub-system.",
+        "Covers services, training, IT placements, support, and management reporting in one platform.",
+        "Built for multi-office, multi-staff scale from day one.",
+        "Same codebase serves mobile, web, and admin surfaces without divergence."
+      ]
+    },
+
+    {
+      "id": "de-learn",
+      "tier": 1,
+      "featured": true,
+      "status": "Production-ready",
+      "theme": "education",
+      "title": "De Learn",
+      "year": "2025",
+      "subtitle": "Offline-First Multi-Role Learning Platform",
+      "summary": "Three coordinated applications — mobile, admin, and API — built around one constraint: students must be able to study anywhere, on any device, with or without connectivity.",
+      "stack": [
+        "Expo React Native (TypeScript)",
+        "Laravel",
+        "MySQL",
+        "Sanctum",
+        "Socket.io",
+        "Redis",
+        "Supervisor",
+        "React (CRA)",
+        "SQLite",
+        "TipTap"
+      ],
+      "image": "",
+      "metrics": [
+        { "value": "3", "label": "Coordinated applications" },
+        { "value": "3", "label": "Content surfaces on one rich-text engine" },
+        { "value": "3", "label": "Runtime targets for one document format" }
+      ],
+      "overview": "De Learn (originally Dexha Class) is a multi-role education platform for exam preparation and course delivery. It serves students, tutors, and administrators through three coordinated applications that share one backend and one unified content model. Every feature in the platform is designed around a single constraint: students must be able to study anywhere, on any device, with or without connectivity. That requirement shaped the database schema, the mobile client, the offline layer, and most of the significant engineering decisions in the project.",
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Students preparing for exams study on phones, in transit, in places with unreliable data. Anything that requires a live connection is fragile. At the same time, tutors need to author rich content — formatted questions, images, explanations, e-books — that renders identically on mobile, on mobile web, and in the admin panel. The engineering challenge was making the same content behave the same way across three runtime environments that cannot normally share code, while keeping the entire study experience functional offline."
+        },
+        {
+          "heading": "Architecture",
+          "body": "The platform runs on Expo React Native (TypeScript) for mobile and mobile web, Laravel for the API, and React (Create React App) for the admin panel. Sanctum handles authentication across all three surfaces. Socket.io powers real-time features. A SQLite-backed local persistence layer with a custom sync queue handles offline behavior. TipTap (ProseMirror) provides the rich-text engine across all surfaces, with a custom cross-platform bridge for native mobile. The platform is built in phases, with each phase delivering a complete user-facing capability across all three applications before the next phase begins."
+        },
+        {
+          "heading": "Highlights",
+          "items": [
+            "CBT engine: multi-section exams with rich-text questions, image attachments, per-question explanations, and configurable answer visibility (never, after submit, or after exam end).",
+            "Offline CBT: exams cache locally, answers are recorded as students go, and the attempt syncs when connectivity returns.",
+            "E-book pipeline: tutors author and price lessons within books; readers purchase, download, and read offline.",
+            "Purchases survive unpublishing — a buyer keeps access to what they paid for.",
+            "Live virtual classrooms: real-time chat with voice notes, images, video, documents, polls, collaborative whiteboards, and in-class CBT.",
+            "Classroom moderation: participant management, mute and block controls, attendance tracking, per-message read receipts and reactions, message forwarding, and a full activity feed for tutors.",
+            "Three-tier monetization: free content, one-time purchases, and time-limited subscriptions, each with its own attempt limits and access rules.",
+            "Guest mode: unauthenticated visitors browse CBTs, books, and classes freely; signing in silently upgrades the session in place.",
+            "Web push notifications wired to the backend and integrated into an in-app notification inbox."
+          ]
+        },
+        {
+          "heading": "The shared rich-text engine",
+          "body": "The most technically demanding piece of the project. The same rich-text document format runs across three environments that cannot normally share code: a WebView-hosted TipTap editor bridged to React Native for native mobile, a parallel implementation resolved via Metro's platform-suffix resolution for mobile web, and a standalone React component for the admin panel. Rather than abstracting into a shared library — which would have required a monorepo refactor — I used a platform-suffix strategy: Metro resolves *.web.tsx for web and the plain .tsx for native, keeping the native bundle free of web-only dependencies while sharing the identical document format and toolbar. The editor supports bold, italic, underline, strike, subscript, superscript, font size, color, highlight, links, headings, lists, blockquotes, code blocks with syntax highlighting, dividers, alignment, and KaTeX math in both inline and display form. The same document format round-trips through all three platforms."
+        },
+        {
+          "heading": "Offline-first architecture",
+          "body": "Every CBT, book, and class caches locally, with a sync queue that records actions taken offline and replays them when connectivity returns. Attempt submissions, book progress, and chat messages all follow the same pattern: optimistic local write, queue, background sync, and reconciliation with server state. The offline layer is not a fallback — it is the primary experience, with online sync as the coordination mechanism."
+        },
+        {
+          "heading": "Notable debugging",
+          "body": "Two bugs worth calling out, because the debugging was as much of the work as the building. First: a user-authored space at the boundary of a bolded word was being silently dropped on save. Tracing the request from the editor through the mobile bridge, the HTTP payload, the Laravel middleware, the controller, and the database revealed the culprit — Laravel's global TrimStrings middleware, enabled by default, trimming every string in every request. The fix was a middleware override that skips the rich-text subtree while leaving every other field trimmed exactly as Laravel intends. Second: audio messages were storing a numeric ID instead of a file path, and every voice note failed to play. The root cause was a single directory owned by the development user instead of the web server user, causing Laravel's file upload to silently return false and every downstream step to inherit a broken value. Two shell commands fixed it — but only after tracing the failure through five layers of the application."
+        }
+      ],
+      "outcomes": [
+        "Multi-role platform shipped across three coordinated applications.",
+        "One document format round-trips through native mobile, mobile web, and admin web.",
+        "Offline-first behavior covers CBT attempts, book progress, and chat messages.",
+        "Built solo — from blank repository to working platform with three coordinated surfaces."
+      ]
+    },
+
+    {
+      "id": "job-ai-assistant",
+      "tier": 1,
+      "featured": true,
+      "status": "Production-ready",
+      "theme": "ai",
+      "title": "Job AI Assistant",
+      "year": "2025",
+      "subtitle": "AI-Powered Job Hunting Platform",
+      "summary": "A full workflow platform that takes a job seeker from 'I found a posting' to 'I'm ready for the interview' — CV analysis, tailored generation, interview practice, learning plans, and live AI chat.",
+      "stack": [
+        "Laravel",
+        "MySQL",
+        "Redis",
+        "Next.js",
+        "Node.js",
+        "Socket.io",
+        "DeepSeek LLM",
+        "Nginx",
+        "PHP-FPM"
+      ],
+      "image": "",
+      "metrics": [
+        { "value": "72% → 90%+", "label": "Match score improvement" },
+        { "value": "110s → 52s", "label": "AI runtime reduction" },
+        { "value": "59%", "label": "Prompt cache hit rate" }
+      ],
+      "overview": "Job AI Assistant is a production-grade AI platform that covers the full job-hunting workflow in one place: analyzing a CV against a job description, generating a tailored CV and cover letter, running structured interview practice with adaptive difficulty, building personalized learning plans to close skill gaps, tracking applications on a Kanban board, and chatting live with an AI career coach. It runs from the same codebase on both a full VPS and standard shared hosting, switched entirely by configuration.",
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Job hunting is fragmented. Candidates paste their CV into one tool, generate a cover letter in another, prep for interviews with a third, and track applications in a spreadsheet. The result is inconsistent documents, no feedback loop, and no way to see whether any of it is actually improving their chances. Job AI Assistant closes the loop: every analysis feeds back into generation, every interview surfaces skill gaps that become learning plans, and the entire process is tracked in one place."
+        },
+        {
+          "heading": "Architecture",
+          "body": "The backend is a Laravel REST API on Nginx and PHP-FPM, with MySQL for persistence and Redis for cache, sessions, and queues. Sanctum handles token authentication. Queue workers managed by Supervisor process long-running AI jobs, and the Laravel scheduler handles recurring reminders and cleanup. The frontend is Next.js with the App Router, styled with Tailwind CSS v4 and a custom design system built on CSS variables. Zustand manages auth state, Axios handles HTTP with request and response interceptors, and Socket.io client drives real-time streaming chat. The AI layer sits behind a multi-provider abstraction: DeepSeek is the primary LLM, with support for OpenAI, Anthropic, Gemini, and Mistral, all swappable through a single environment variable."
+        },
+        {
+          "heading": "Highlights",
+          "items": [
+            "CV analysis: match scoring, missing skills, tailored bullet suggestions, ATS feedback, interview prep questions, and a 48-hour action plan.",
+            "Tailored CV generator: AI-rewritten, ATS-optimized CVs with a diff report showing exactly what changed and why.",
+            "Cover letter generator: tone-controlled output (professional, conversational, enthusiastic, formal, creative, direct).",
+            "Interview practice: adaptive difficulty, per-answer scoring across five dimensions, automatic follow-up probing, and a final report.",
+            "Learning plans: week-by-week roadmaps with teaching summaries, practice projects, real resources, and progress tracking.",
+            "Application tracker: Kanban board with drag-and-drop across saved, applied, interviewing, offer, rejected, and accepted.",
+            "Live AI chat: streaming responses that know the user's CV and recent analyses.",
+            "Job link analyzer: extracts structured job data from Greenhouse, Lever, Ashby, SmartRecruiters, and Workable — with a generic HTML fallback."
+          ]
+        },
+        {
+          "heading": "Engineering decisions",
+          "body": "Two decisions define the project. First, dual-deployment architecture: the same codebase runs on a full VPS (Nginx + PHP-FPM + Redis + Supervisor + Socket.io) or on standard shared hosting (cron-driven queue, static Next.js export), switched entirely by configuration with zero code changes. Real-time features and Redis are disabled cleanly via config on the shared hosting build, while all AI features continue to work synchronously. Second, multi-provider AI abstraction: the AI layer sits behind an interface that can swap DeepSeek, OpenAI, Anthropic, Gemini, or Mistral without touching application code. Prompt engineering uses strict JSON schemas with automatic truncation recovery — if an LLM response is cut off, the parser auto-closes the JSON rather than failing. Context injection bakes the user's CV and recent analyses into every AI call so responses stay grounded."
+        },
+        {
+          "heading": "Performance & reliability",
+          "body": "AI response time was cut from 110 seconds to 52 seconds through prompt brevity engineering — tightening the prompt structure without losing output richness. Prompt caching achieved a 59% hit rate by stabilizing system prompts and CV context across sessions. Iterative AI workflows feed prior analyses back into generation, driving measurable match-score improvements from 72% to 90%+. Job URL extraction uses a three-tier fallback: structured ATS APIs first, then HTML readability parsing, then manual paste. Every AI response is parsed against a strict schema, with partial recovery when structured output is imperfect. Token usage is tracked per request for cost monitoring."
+        }
+      ],
+      "outcomes": [
+        "Full end-to-end workflow — from job discovery to interview readiness — in one platform.",
+        "Same codebase deploys to full VPS or shared hosting with zero code changes.",
+        "Five LLM providers swappable through a single environment variable.",
+        "Measurable improvement in output quality (72% → 90%+ match scores) and performance (110s → 52s).",
+        "20+ relational tables with full Eloquent relationship modeling."
+      ]
+    }
+  ],
+
+  "tier2": [
+    {
+      "id": "x-tasks",
+      "tier": 2,
+      "theme": "collaboration",
+      "title": "X Tasks",
+      "year": "2025",
+      "subtitle": "Team Task Management Platform",
+      "summary": "Collaborative task management for teams — advanced filtering, role-based permissions, email notifications, and PDF export.",
+      "stack": ["React.js", "Laravel"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [],
+      "overview": "Collaborative task management platform for teams and organizations. Advanced filtering and task organization workflows, role-based permissions separating administrators from team members, email notifications on task updates and collaboration events, and PDF export for reports and task summaries. Backend built as scalable RESTful APIs paired with responsive frontend interfaces for smooth multi-user operation.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "gain-more-views",
+      "tier": 2,
+      "theme": "business",
+      "title": "Gain More Views",
+      "year": "2025",
+      "subtitle": "WhatsApp Contact-Growth Platform",
+      "summary": "A contact-growth platform that helps users expand their WhatsApp network through a personalized shareable profile link, with export to PDF, VCF, or Excel.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "jQuery",
+        "Bootstrap",
+        "PHP",
+        "MySQL"
+      ],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [],
+      "overview": "Contact-growth platform helping users expand WhatsApp connections through a personalized shareable profile link. User dashboard for managing the unique link and tracking engagement. Contact lists exportable as PDF, VCF, or Excel. Admin dashboard for managing users, platform activity, and publishing blog posts and announcements.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "uniben-online-class",
+      "tier": 2,
+      "theme": "education",
+      "title": "Uniben Online Class",
+      "year": "2025",
+      "subtitle": "Virtual Classroom LMS",
+      "summary": "A 24-hour virtual classroom platform with live video, in-class messaging, in-class CBT, attendance tracking, and integrated payments.",
+      "stack": ["React.js", "Laravel", "Socket.io"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [],
+      "overview": "24-hour virtual classroom platform for O-Level, A-Level, and higher education students. Multi-role architecture (admins, tutors, students). Live video classes with tutor-controlled session state. In-class messaging with comments, reactions, and read receipts. In-class CBT with per-attempt tracking. Attendance tracking with IP and device info. Payment system with receipts. Firebase Cloud Messaging push notifications. Timetable engine. Admin approval workflows for tutors. Exam type constraints modeled in the schema (JAMB 4 subjects, SSCE 9, POSTUTME 4).",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "document-generator",
+      "tier": 2,
+      "theme": "utilities",
+      "title": "Document Generator",
+      "year": "2025",
+      "subtitle": "Config-Driven Formal Letter Generator",
+      "summary": "A browser-based tool that generates formal letters from reusable templates — one definition powers the form, preview, Word export, and PDF export.",
+      "stack": ["React (CRA)", "docx", "jsPDF", "FileSaver.js"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [],
+      "overview": "Browser-based document generator producing formal letters from reusable templates — Acceptance Letters and Guarantor's Letters. Each template definition powers the form, live preview, Word export, and PDF export from a single source, so adding a document type requires one definition and no UI or export changes. Deployed as a static app via GitHub Pages.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "ucs-result-checker",
+      "tier": 2,
+      "theme": "education",
+      "title": "UCS Result Checker",
+      "year": "2024",
+      "subtitle": "Dual-Role Result Management Platform",
+      "summary": "Students check results; teachers upload them. Covers Nursery, Primary, and Secondary sections with unique result IDs, auto-grading, and PDF output.",
+      "stack": ["React.js", "PHP", "MySQL"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [{ "value": "600+", "label": "Students per term" }],
+      "overview": "Dual-role result management platform serving students checking results and teachers uploading them across Nursery, Primary, and Secondary sections. Unique result ID per result. Viewable online and downloadable as PDF. Auto-grading and score totaling. Term-to-term student data transfer. Safeguards against duplicate or invalid teacher uploads. Passwords hashed.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "utme-mock",
+      "tier": 2,
+      "theme": "education",
+      "title": "UTME Mock",
+      "year": "2024",
+      "subtitle": "Online UTME Mock Examination Platform",
+      "summary": "An online mock UTME exam for desktop and mobile with image-based questions, attempt tracking, and flag-for-review — scaled to 500+ students.",
+      "stack": ["React.js", "PHP", "MySQL"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [
+        { "value": "500+", "label": "Students" },
+        { "value": "50", "label": "Concurrent test-takers" }
+      ],
+      "overview": "Online UTME mock examination platform for desktop and mobile browsers. Image-based questions, image answer options, and image explanations. Per-student attempt tracking and flag-for-review. Direct predecessor to X CBT.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "learn-krest",
+      "tier": 2,
+      "theme": "education",
+      "title": "Learn Krest",
+      "year": "2024",
+      "subtitle": "E-Learning Platform with Digital Library",
+      "summary": "An e-learning platform with free and paid study content, per-content CBT configuration, receipt-based payment verification, and dual student/admin surfaces.",
+      "stack": ["React.js", "PHP", "MySQL", "Flutterwave"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [],
+      "overview": "E-learning platform with a digital library offering both free and paid content. Content is modeled as study texts, each carrying its own subject, educational level, pricing, and CBT configuration (duration and attempt limits). Students read lessons, watch videos, and take CBT tests; administrators upload study texts, questions, and supplementary files. Includes a receipt-based payment verification flow, email verification for both students and admins, and content delivery, testing, and performance tracking across both surfaces.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "success-royal-academy",
+      "tier": 2,
+      "theme": "education",
+      "title": "Success Royal Academy Teachers Application",
+      "year": "2024",
+      "subtitle": "Staff Application & Admin Portal",
+      "summary": "An application portal for returning and new staff with distinct flows, plus a full admin platform for review, filtering, and status tracking.",
+      "stack": ["React.js", "PHP", "MySQL"],
+      "image": "",
+      "status": "Production-ready",
+      "metrics": [],
+      "overview": "Staff application portal supporting both returning and new applicants through distinct submission flows. Full admin platform to review, filter, and manage applications with status tracking.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "chatbyx",
+      "tier": 2,
+      "theme": "collaboration",
+      "title": "ChatByX",
+      "year": "2024",
+      "subtitle": "Cross-Platform Real-Time Chat with Stories",
+      "summary": "Real-time chat with mutual-contact detection and WhatsApp-style expiring stories across images, video, audio, and text.",
+      "stack": ["React Native (Expo)", "Laravel"],
+      "image": "",
+      "status": "",
+      "metrics": [],
+      "overview": "Cross-platform real-time chat with client–server synchronization powered by Laravel stream responses. Contact management with email-based saving and automatic mutual-connection detection. WhatsApp-style stories module supporting images, videos, audio, and text with auto-expiry. Focused on scalable real-time performance and secure data flow.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "xnote",
+      "tier": 2,
+      "theme": "utilities",
+      "title": "XNote",
+      "year": "2024",
+      "subtitle": "Offline-First Notepad",
+      "summary": "An offline-first notepad for Android, iOS, and Web with a smart contrast engine, adaptive theming, and zero network dependency.",
+      "stack": ["React Native (Expo)", "SQLite"],
+      "image": "",
+      "status": "",
+      "metrics": [],
+      "overview": "Offline-first notepad application for Android, iOS, and Web from one codebase. Adaptive theming with light and dark mode. Smart contrast engine that pairs user-selected label colors with readable text and background combinations. Bookmark system for pinning important notes. All data persisted locally with instant saves and zero network dependency.",
+      "sections": [],
+      "outcomes": []
+    },
+
+    {
+      "id": "space-talk",
+      "tier": 2,
+      "theme": "early",
+      "title": "Space Talk",
+      "year": "2019",
+      "subtitle": "Social Chatting Platform",
+      "summary": "A social platform with friend management, a friend-filtered feed, and polling-based live chat — my first real full-stack project.",
+      "stack": ["React.js", "PHP", "MySQL"],
+      "image": "",
+      "status": "",
+      "metrics": [],
+      "overview": "Social chatting platform built as a first full-stack project. Friend management (add, block, unblock). Friend-filtered post feed powered by relational joins. Pagination. Profiles with edit and settings. Polling-based live chat using setInterval. Modeled the social graph in SQL and optimized the friend-feed query to avoid N+1 lookups.",
+      "sections": [],
+      "outcomes": []
+    }
+  ],
+
+  "caseStudyCta": {
+    "heading": "Want to see more?",
+    "subheading": "Browse the full project archive.",
+    "button": { "label": "All Projects", "path": "/projects" }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Destiny Uyi Akugbe — Backend & Full-Stack Engineer",
+    "description": "Backend and full-stack engineer building production systems with Laravel, React, Node.js, and AI — from high-concurrency exam platforms to multi-role business systems.",
+    "author": "Destiny Uyi Akugbe",
+    "keywords": [
+      "Backend Engineer",
+      "Full-Stack Developer",
+      "Laravel",
+      "React",
+      "Node.js",
+      "React Native",
+      "REST APIs",
+      "AI Integration",
+      "Nigeria",
+      "Destiny Akugbe"
+    ],
+    "ogImage": "/og-image.png",
+    "siteUrl": "https://dexha21.github.io/portfolio"
+  },
+
+  "brand": {
+    "name": "Destiny Uyi Akugbe",
+    "shortName": "DUA",
+    "initials": "DA",
+    "role": "Backend & Full-Stack Engineer",
+    "tagline": "I build production systems — high-concurrency exam platforms, multi-role business tools, and AI-powered applications."
+  },
+
+  "nav": [
+    { "label": "Home", "path": "/" },
+    { "label": "About", "path": "/about" },
+    { "label": "Projects", "path": "/projects" },
+    { "label": "Skills", "path": "/skills" },
+    { "label": "Contact", "path": "/contact" }
+  ],
+
+  "theme": {
+    "default": "dark",
+    "storageKey": "dua-theme-preference",
+    "supportsSystem": true
+  },
+
+  "hero": {
+    "eyebrow": "Backend & Full-Stack Engineer",
+    "headline": "I design and build software that runs in production.",
+    "subheadline": "Laravel, React, Node.js, and AI systems — from 300-concurrent exam platforms to multi-app business operating systems.",
+    "primaryCta": { "label": "View Projects", "path": "/projects" },
+    "secondaryCta": { "label": "Get in Touch", "path": "/contact" },
+    "highlights": [
+      { "value": "15+", "label": "Production Systems" },
+      { "value": "7+", "label": "Years Building" },
+      { "value": "300+", "label": "Concurrent Users Supported" },
+      { "value": "3", "label": "AI-Integrated Products" }
+    ]
+  },
+
+  "aboutTeaser": {
+    "heading": "About",
+    "body": "I've been building software since 2016. Most of my early work predates version control and is no longer online — Space Talk (2019) is the earliest project I still have. Since then I've shipped production systems for schools, businesses, and training centers: exam platforms that hold up under hundreds of concurrent users, multi-role business tools, and AI-powered applications.",
+    "cta": { "label": "Read More", "path": "/about" }
+  },
+
+  "featuredHeading": {
+    "eyebrow": "Selected Work",
+    "heading": "Featured Case Studies",
+    "subheading": "Four systems I'm proud of — each one solved a real problem with real constraints."
+  },
+
+  "skillsTeaser": {
+    "heading": "Skills",
+    "subheading": "Technologies and patterns I use in production.",
+    "cta": { "label": "Full Skill Set", "path": "/skills" }
+  },
+
+  "contact": {
+    "heading": "Let's build something.",
+    "subheading": "Open to backend engineering roles, contract work, and technical collaborations.",
+    "email": "akugbed2@gmail.com",
+    "phone": "+234 903 869 2680",
+    "location": "Edo State, Nigeria",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/destiny-akugbe-bb7607349/",
+      "github": "https://github.com/dexha21",
+      "portfolio": "https://dexha21.github.io/portfolio"
+    }
+  },
+
+  "footer": {
+    "copyright": "Destiny Uyi Akugbe",
+    "note": "Built with Vite, React, and too much coffee."
+  },
+
+  "seo": {
+    "twitterHandle": "",
+    "linkedIn": "https://www.linkedin.com/in/destiny-akugbe-bb7607349/"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "eyebrow": "About Me",
+  "heading": "I build software that has to actually work.",
+  "intro": "I'm Destiny — a backend and full-stack engineer based in Edo State, Nigeria. I've been building software since 2016, and I've spent the last two years shipping production systems that real people depend on.",
+
+  "origin": {
+    "heading": "Where it started",
+    "body": "I've been coding since 2016. Like most self-taught developers, my earliest work lived on local machines and USB drives — most of it is gone now, casualties of an era before I understood version control. Space Talk (2019), a social platform I built with React, PHP, and MySQL, is the earliest project I still have. Everything after that has lived on GitHub."
+  },
+
+  "whatIdo": {
+    "heading": "What I do now",
+    "body": "I build backend systems and the frontends that depend on them. My work tends to fall into three buckets: education and assessment platforms (exam systems, result checkers, learning tools), multi-role business systems (marketplaces, task platforms, operating systems for small businesses), and AI-integrated applications (document analysis, generative workflows, streaming chat). I work mostly in Laravel, Node.js, and React — but I care less about the stack and more about whether the software survives contact with real users."
+  },
+
+  "howIWork": {
+    "heading": "How I work",
+    "items": [
+      {
+        "title": "I design for constraints",
+        "body": "Shared hosting, offline networks, low-spec laptops, unreliable connectivity — I've built around all of them. Constraints aren't obstacles; they're the shape of the problem."
+      },
+      {
+        "title": "I think in systems",
+        "body": "Before I write a controller, I map the entities, the roles, and the flows. The schema comes first. Code is just the last mile."
+      },
+      {
+        "title": "I debug all the way down",
+        "body": "A whitespace bug that traced back to Laravel's TrimStrings middleware. A silent upload failure caused by a Unix permission bit. I don't stop at the symptom."
+      },
+      {
+        "title": "I ship in slices",
+        "body": "Every project is a series of small, testable vertical slices — not one big launch. If a phase breaks, the rest of the system keeps running."
+      }
+    ]
+  },
+
+  "timeline": [
+    {
+      "year": "2016",
+      "title": "Started coding",
+      "body": "Self-taught, mostly web development. Taught myself PHP, JavaScript, and the fundamentals that still carry through my work today."
+    },
+    {
+      "year": "2019",
+      "title": "Space Talk",
+      "body": "Built my first real full-stack project — a social platform with friends, feeds, and polling-based live chat. React, PHP, MySQL."
+    },
+    {
+      "year": "2022",
+      "title": "ICT Instructor",
+      "body": "Taught web development and computer fundamentals at Impeccable Computers. Learned to explain technical ideas to people who don't speak the language yet."
+    },
+    {
+      "year": "2024",
+      "title": "First production contracts",
+      "body": "Shipped a result-checking platform for University of Benin Consultancy School (600+ students per term) and a series of educational tools. Started the transition from freelancer to professional engineer."
+    },
+    {
+      "year": "2025",
+      "title": "Backend Engineer — Kikae",
+      "body": "Joined Kikae to work on a multi-vendor fashion e-commerce marketplace. Integrated Paystack, OpenAI image analysis, Firebase, and managed production deployments on Ubuntu VPS."
+    },
+    {
+      "year": "2025 —",
+      "title": "Production systems at scale",
+      "body": "Built X CBT (300+ concurrent exam systems), Penoter Platform (multi-app business OS), De Learn (offline-first LMS), and Job AI Assistant (AI career platform). Four systems, four different problem shapes."
+    },
+    {
+      "year": "2026",
+      "title": "Tech Officer — Penoter",
+      "body": "Managing technical operations for a CBT center — 250+ networked systems, live UTME exam infrastructure, and on-the-ground troubleshooting."
+    }
+  ],
+
+  "currently": {
+    "heading": "What I'm doing now",
+    "items": [
+      "Building De Learn, an offline-first learning platform with real-time classrooms",
+      "Building Penoter Platform, a multi-app business operating system",
+      "Working as Backend Engineer at Kikae on a multi-vendor e-commerce marketplace",
+      "Exploring AI integration patterns for production applications"
+    ]
+  },
+
+  "cta": {
+    "heading": "Want to work together?",
+    "body": "I'm open to backend engineering roles, contract work, and technical collaborations.",
+    "button": { "label": "Get in Touch", "path": "/contact" }
+  }
+}

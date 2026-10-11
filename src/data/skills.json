@@ -1,0 +1,183 @@
+{
+  "eyebrow": "Capabilities",
+  "heading": "Skills & Tools",
+  "subheading": "The technologies I use in production — grouped by what they actually do.",
+
+  "categories": [
+    {
+      "id": "languages",
+      "name": "Languages",
+      "icon": "code",
+      "skills": ["PHP", "JavaScript", "TypeScript", "SQL", "HTML5", "CSS3"]
+    },
+    {
+      "id": "frameworks",
+      "name": "Frameworks & Libraries",
+      "icon": "layers",
+      "skills": [
+        "Laravel",
+        "React.js",
+        "React Native",
+        "Next.js",
+        "Expo",
+        "Node.js",
+        "Express",
+        "jQuery",
+        "Bootstrap",
+        "Tailwind CSS",
+        "NativeWind",
+        "Zustand",
+        "React Hook Form",
+        "Zod",
+        "TipTap (ProseMirror)",
+        "@dnd-kit"
+      ]
+    },
+    {
+      "id": "backend",
+      "name": "Backend & Architecture",
+      "icon": "server",
+      "skills": [
+        "RESTful API Design",
+        "Object-Oriented Programming (OOP)",
+        "MVC Architecture",
+        "SOLID Principles",
+        "Actions-and-Services Pattern",
+        "Authentication & Authorization",
+        "Laravel Sanctum",
+        "Spatie Laravel Permission",
+        "Role-Based Access Control (RBAC)",
+        "Payment Gateway Integration",
+        "Queue Workers",
+        "Background Jobs",
+        "Scheduled Tasks",
+        "Backend Optimization",
+        "API Security",
+        "File Upload Handling",
+        "Dynamic Form Engines"
+      ]
+    },
+    {
+      "id": "realtime",
+      "name": "Real-Time & Messaging",
+      "icon": "zap",
+      "skills": [
+        "Socket.io",
+        "WebSockets",
+        "Redis Pub/Sub",
+        "Laravel Broadcasting",
+        "Firebase Cloud Messaging (FCM)",
+        "Push Notifications"
+      ]
+    },
+    {
+      "id": "databases",
+      "name": "Databases",
+      "icon": "database",
+      "skills": ["MySQL", "SQLite", "IndexedDB", "Redis"]
+    },
+    {
+      "id": "ai",
+      "name": "AI / LLM Integration",
+      "icon": "sparkles",
+      "skills": [
+        "Multi-Provider AI Abstraction",
+        "Prompt Engineering",
+        "Structured JSON Output",
+        "Prompt Caching",
+        "Streaming AI Responses",
+        "LLM API Integration",
+        "OpenAI API",
+        "DeepSeek"
+      ]
+    },
+    {
+      "id": "documents",
+      "name": "Document & File Processing",
+      "icon": "file",
+      "skills": [
+        "docx (Word generation)",
+        "jsPDF (PDF generation)",
+        "FileSaver.js",
+        "smalot/pdfparser (PDF parsing)",
+        "phpoffice/phpword (DOCX parsing)",
+        "PhpSpreadsheet / PHPExcel (Excel)"
+      ]
+    },
+    {
+      "id": "payments",
+      "name": "Payments",
+      "icon": "credit-card",
+      "skills": ["Flutterwave", "Paystack"]
+    },
+    {
+      "id": "infra",
+      "name": "Infrastructure & DevOps",
+      "icon": "terminal",
+      "skills": [
+        "Linux",
+        "Ubuntu",
+        "VPS Administration",
+        "Nginx",
+        "Apache",
+        "PHP-FPM",
+        "Supervisor",
+        "Horizon",
+        "Cron Jobs",
+        "Environment Configuration",
+        "Deployment Workflows",
+        "GitHub Pages",
+        "Git",
+        "GitHub"
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools & Platforms",
+      "icon": "wrench",
+      "skills": [
+        "Postman",
+        "Insomnia",
+        "VS Code",
+        "Composer",
+        "NPM",
+        "Vite",
+        "Create React App"
+      ]
+    },
+    {
+      "id": "soft",
+      "name": "Soft Skills",
+      "icon": "users",
+      "skills": [
+        "Problem-Solving",
+        "Debugging",
+        "Communication",
+        "Team Collaboration",
+        "Project Ownership"
+      ]
+    }
+  ],
+
+  "highlights": {
+    "heading": "What I'm strongest at",
+    "items": [
+      {
+        "title": "Backend architecture",
+        "body": "Designing schemas, services, and API layers that stay clean as features accumulate."
+      },
+      {
+        "title": "Real-time systems",
+        "body": "WebSocket architecture, Redis pub/sub, and streaming AI responses with horizontal scaling."
+      },
+      {
+        "title": "Production debugging",
+        "body": "Tracing failures through every layer — from UI symptom to root cause — rather than patching symptoms."
+      },
+      {
+        "title": "Cross-platform delivery",
+        "body": "One backend, many surfaces: mobile, web admin, desktop, and static exports from the same codebase."
+      }
+    ]
+  }
+}
