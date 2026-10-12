@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Destiny Uyi Akugbe — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live:** https://dexha21.github.io/portfolio/
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+A content-driven developer portfolio built with Vite, React, and React Router. All copy
+lives in JSON files under `src/data/`, so projects, skills, and about content can be
+updated without touching component code.
 
-### `npm start`
+Projects come in two tiers: **tier 1** projects have a full case-study page
+(`overview`, `sections`, `outcomes`, `metrics`), while **tier 2** projects render as
+cards plus a simplified detail view.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Vite** — build tool
+- **React** — UI
+- **React Router** — client-side routing
+- **Plain CSS with custom properties** — design tokens, dark/light themes
+- **oxlint** — linting
 
-### `npm test`
+No UI framework, no Tailwind, no state-management library.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture — content-driven
 
-### `npm run build`
+Components read from JSON. No content is hardcoded into JSX.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/data/site.json       → global config (nav, hero, contact, meta)
+src/data/about.json      → about page content + timeline
+src/data/skills.json     → skills categories
+src/data/projects.json   → all projects (tier 1 case studies + tier 2 cards)
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Add a Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Open `src/data/projects.json`
+2. Copy an existing block from `tier1` or `tier2`
+3. Change the `id` to a unique kebab-case slug
+4. Set `tier` to `1` (case study) or `2` (card)
+5. Fill the required fields: `id`, `title`, `year`, `subtitle`, `summary`, `stack`, `tier`
+6. For tier 1, also fill: `overview`, `sections`, `outcomes`, `metrics`
+7. Set `theme` to one of the IDs in `meta.themes`
+8. Commit and push — no code changes needed
 
-### `npm run eject`
+## How to Edit Existing Content
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Content | File |
+| --- | --- |
+| Hero, nav, contact, meta | `src/data/site.json` |
+| About narrative and timeline | `src/data/about.json` |
+| Skills | `src/data/skills.json` |
+| Project descriptions | `src/data/projects.json` |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Local Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm run dev       # http://localhost:5173/portfolio/
+npm run build     # production bundle in dist/
+npm run preview   # preview production build
+npm run lint      # oxlint
+```
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run deploy    # builds and pushes dist/ to the gh-pages branch
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GitHub Pages serves from the `gh-pages` branch. Vite's `base` is `/portfolio/` and
+React Router's `basename` is `/portfolio/` to match.
 
-### Code Splitting
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+src/
+  data/          ← JSON content
+  components/    ← reusable UI
+  pages/         ← route components
+  hooks/         ← custom hooks
+  utils/         ← helpers
+  styles/        ← theme.css (tokens) + global.css (all styles)
+public/
+  404.html       ← SPA fallback for GitHub Pages
+  favicon.ico
+```
 
-### Analyzing the Bundle Size
+## Adding Images to Projects
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+All projects currently use a gradient + initials fallback (`ProjectVisual.jsx`). To add
+a real image:
 
-### Making a Progressive Web App
+1. Upload the image somewhere public (Imgur, GitHub, a CDN)
+2. Set the `image` field in the project's entry in `projects.json` to the direct URL
+3. The card and case study will render the image instead of the gradient
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Email:** akugbed2@gmail.com
+- **GitHub:** https://github.com/dexha21
+- **LinkedIn:** https://www.linkedin.com/in/destiny-akugbe-bb7607349/
