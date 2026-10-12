@@ -1,1 +1,85 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/portfolio/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/portfolio/logo192.png"/><link rel="manifest" href="/portfolio/manifest.json"/><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{primary:"#0f5132",accent:"#16a34a"},fontFamily:{inter:["Inter","sans-serif"]}}}}</script><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"><title>React App</title><script defer="defer" src="/portfolio/static/js/main.e2e15e0f.js"></script><link href="/portfolio/static/css/main.0d31c5c7.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/portfolio/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta tags sourced from src/data/site.json (meta.*) -->
+    <title>Destiny Uyi Akugbe — Backend &amp; Full-Stack Engineer</title>
+    <meta
+      name="description"
+      content="Backend and full-stack engineer building production systems with Laravel, React, Node.js, and AI — from high-concurrency exam platforms to multi-role business systems."
+    />
+    <meta name="author" content="Destiny Uyi Akugbe" />
+    <meta
+      name="keywords"
+      content="Backend Engineer, Full-Stack Developer, Laravel, React, Node.js, React Native, REST APIs, AI Integration, Nigeria, Destiny Akugbe"
+    />
+
+    <meta name="theme-color" content="#0a0a0b" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Destiny Uyi Akugbe — Backend &amp; Full-Stack Engineer" />
+    <meta
+      property="og:description"
+      content="Backend and full-stack engineer building production systems with Laravel, React, Node.js, and AI."
+    />
+    <meta property="og:url" content="https://dexha21.github.io/portfolio" />
+    <meta property="og:image" content="https://dexha21.github.io/portfolio/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Theme boot script — runs BEFORE React renders so the correct theme is
+      applied on the very first paint (no flash of the wrong theme / FOUC).
+      Mirrors the logic in src/hooks/useTheme.js.
+    -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem('dua-theme-preference')
+        var theme =
+          stored === 'light'
+            ? 'light'
+            : stored === 'system'
+              ? window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+              : 'dark'
+        document.documentElement.setAttribute('data-theme', theme)
+      })()
+    </script>
+
+    <!--
+      SPA redirect restore — the other half of public/404.html.
+      GitHub Pages serves 404.html for unknown paths, which rewrites the URL to
+      the `?/route` form; this script turns it back into a real path before
+      React Router reads it. Used so a hard refresh on e.g. /portfolio/projects/x-cbt
+      does not 404.
+    -->
+    <script>
+      ;(function (location) {
+        if (location.search[1] === '/') {
+          var decoded = location.search
+            .slice(1)
+            .split('&')
+            .map(function (segment) {
+              return segment.replace(/~and~/g, '&')
+            })
+            .join('?')
+
+          window.history.replaceState(
+            null,
+            null,
+            location.pathname.slice(0, -1) + decoded + location.hash,
+          )
+        }
+      })(window.location)
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-DgCQFVcD.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BQXSJth6.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
