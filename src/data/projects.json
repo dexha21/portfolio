@@ -98,7 +98,7 @@
       "status": "Production-ready",
       "theme": "business",
       "title": "Penoter Platform",
-      "year": "2025",
+      "year": "2026",
       "subtitle": "A Complete Business Operating System",
       "summary": "Four integrated applications — customer, trainee, staff/admin, and mobile — sharing one Laravel API, one Redis pub/sub layer, and one real-time Socket.IO server.",
       "stack": [
@@ -166,7 +166,7 @@
       "status": "Production-ready",
       "theme": "education",
       "title": "De Learn",
-      "year": "2025",
+      "year": "2026",
       "subtitle": "Offline-First Multi-Role Learning Platform",
       "summary": "Three coordinated applications — mobile, admin, and API — built around one constraint: students must be able to study anywhere, on any device, with or without connectivity.",
       "stack": [
@@ -239,7 +239,7 @@
       "status": "Production-ready",
       "theme": "ai",
       "title": "Job AI Assistant",
-      "year": "2025",
+      "year": "2026",
       "subtitle": "AI-Powered Job Hunting Platform",
       "summary": "A full workflow platform that takes a job seeker from 'I found a posting' to 'I'm ready for the interview' — CV analysis, tailored generation, interview practice, learning plans, and live AI chat.",
       "stack": [

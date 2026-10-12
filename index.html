@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta tags sourced from src/data/site.json (meta.*) -->
+    <title>Destiny Uyi Akugbe — Backend &amp; Full-Stack Engineer</title>
+    <meta
+      name="description"
+      content="Backend and full-stack engineer building production systems with Laravel, React, Node.js, and AI — from high-concurrency exam platforms to multi-role business systems."
+    />
+    <meta name="author" content="Destiny Uyi Akugbe" />
+    <meta
+      name="keywords"
+      content="Backend Engineer, Full-Stack Developer, Laravel, React, Node.js, React Native, REST APIs, AI Integration, Nigeria, Destiny Akugbe"
+    />
+
+    <meta name="theme-color" content="#0a0a0b" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Destiny Uyi Akugbe — Backend &amp; Full-Stack Engineer" />
+    <meta
+      property="og:description"
+      content="Backend and full-stack engineer building production systems with Laravel, React, Node.js, and AI."
+    />
+    <meta property="og:url" content="https://dexha21.github.io/portfolio" />
+    <meta property="og:image" content="https://dexha21.github.io/portfolio/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Theme boot script — runs BEFORE React renders so the correct theme is
+      applied on the very first paint (no flash of the wrong theme / FOUC).
+      Mirrors the logic in src/hooks/useTheme.js.
+    -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem('dua-theme-preference')
+        var theme =
+          stored === 'light'
+            ? 'light'
+            : stored === 'system'
+              ? window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+              : 'dark'
+        document.documentElement.setAttribute('data-theme', theme)
+      })()
+    </script>
+
+    <!--
+      SPA redirect restore — the other half of public/404.html.
+      GitHub Pages serves 404.html for unknown paths, which rewrites the URL to
+      the `?/route` form; this script turns it back into a real path before
+      React Router reads it. Used so a hard refresh on e.g. /portfolio/projects/x-cbt
+      does not 404.
+    -->
+    <script>
+      ;(function (location) {
+        if (location.search[1] === '/') {
+          var decoded = location.search
+            .slice(1)
+            .split('&')
+            .map(function (segment) {
+              return segment.replace(/~and~/g, '&')
+            })
+            .join('?')
+
+          window.history.replaceState(
+            null,
+            null,
+            location.pathname.slice(0, -1) + decoded + location.hash,
+          )
+        }
+      })(window.location)
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
